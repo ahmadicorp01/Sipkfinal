@@ -1,5 +1,4 @@
 package com.example.sipkfinal;
-
 import android.util.Log;
 
 import java.io.BufferedInputStream;
@@ -12,7 +11,12 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
+/**
+ * Created by Ravi Tamada on 01/09/16.
+ * www.androidhive.info
+ */
 public class HttpHandler {
+
     private static final String TAG = HttpHandler.class.getSimpleName();
 
     public HttpHandler() {
@@ -24,7 +28,7 @@ public class HttpHandler {
             URL url = new URL(reqUrl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
-
+            // read the response
             InputStream in = new BufferedInputStream(conn.getInputStream());
             response = convertStreamToString(in);
         } catch (MalformedURLException e) {
