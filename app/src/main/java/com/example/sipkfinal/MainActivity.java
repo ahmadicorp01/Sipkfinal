@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
     public void openUtamaActivity(){
         Intent intent = new Intent(this,UtamaActivity.class);
         startActivity(intent);
