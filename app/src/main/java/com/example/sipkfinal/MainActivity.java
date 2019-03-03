@@ -57,9 +57,8 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jData = jsonObj.getJSONObject("data");
 
                     sharedPreferences.edit().putBoolean("isLogin", true).apply();
-//                    sharedPreferences.edit().putInt("id_pengguna", jData.getInt("id_pengguna")).apply();
                     sharedPreferences.edit().putInt("id_user", jData.getInt("id_user")).apply();
-                    sharedPreferences.edit().putInt("status", jData.getInt("status")).apply();
+                    sharedPreferences.edit().putString("status", jData.getString("status")).apply();
                     sharedPreferences.edit().putInt("akses", jData.getInt("akses")).apply();
 
                     openUtamaActivity();
