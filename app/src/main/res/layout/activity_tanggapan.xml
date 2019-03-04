@@ -7,21 +7,25 @@
     android:orientation="vertical"
     tools:context=".TanggapanActivity">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Irfan Ahmadi"
+        android:textSize="20sp"
+        android:padding="20dp"/>
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_chat"
         android:layout_width="match_parent"
-        android:layout_height="471dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp" />
+        android:layout_height="wrap_content"
+        android:layout_weight="5"/>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:paddingBottom="5dp"
+        android:padding="5dp"
         android:baselineAligned="true">
 
         <EditText android:layout_weight="1"
@@ -29,14 +33,12 @@
             android:layout_height="45dp"
             android:layout_width="0dip">
         </EditText>
-        <requestFocus></requestFocus>
-        <Button android:text="Send"
+
+        <Button
+            android:text="Send"
             android:layout_height="45dp"
             android:layout_width="125dp"
             android:id="@+id/btnSend">
         </Button>
-
     </LinearLayout>
-
-
 </LinearLayout>

@@ -43,19 +43,7 @@ public class DaftarActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
 
 
-        mAdapter.setOnItemClickListener(new LaporanAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                changeItem(position,"clicked");
-            }
-        });
-
         new UserLaporanDaftar().execute(Integer.toString(id_user));
-    }
-
-    public void changeItem(int position, String text){
-        laporanItems.get(position).changeText1(text);
-        mAdapter.notifyItemChanged(position);
     }
 
     private class UserLaporanDaftar extends AsyncTask<String, String, String> {

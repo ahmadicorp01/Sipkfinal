@@ -31,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("SIPK", MODE_PRIVATE);
         id_user = sharedPreferences.getInt("id_user", 0);
 
+        if (sharedPreferences.getBoolean("isLogin", false))
+            openUtamaActivity();
+
         text_username = findViewById(R.id.username);
         text_password = findViewById(R.id.password);
 

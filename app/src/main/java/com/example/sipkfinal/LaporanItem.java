@@ -10,9 +10,6 @@ public class LaporanItem {
         mnama_kategori = nama_kategori;
         mwaktu = waktu;
     }
-    public void changeText1(String text){
-        mjudul_keluhan = text;
-    }
 
     public String getJudul_keluhan(){
         return mjudul_keluhan;

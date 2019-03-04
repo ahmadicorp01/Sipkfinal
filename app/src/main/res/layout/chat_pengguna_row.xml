@@ -3,17 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="@android:color/transparent"
+    android:outlineAmbientShadowColor="@android:color/transparent"
+    android:outlineSpotShadowColor="@android:color/transparent"
     android:layout_width="match_parent"
     android:layout_height="61dp"
     android:layout_margin="6dp"
-    app:cardCornerRadius="13dp">
+    app:cardPreventCornerOverlap="false">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="6dp">
         <TextView
-            android:id="@+id/mnama_pengguna"
+            android:id="@+id/cnama_pengguna"
             android:textSize="10dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
@@ -23,13 +25,13 @@
             android:layout_alignParentTop="true" />
 
         <TextView
-            android:id="@+id/mwaktu"
+            android:id="@+id/cwaktu"
             android:textSize="10dp"
             android:textStyle="bold"
             android:textColor="@android:color/darker_gray"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@id/mnama_pengguna"
+            android:layout_alignBaseline="@id/cnama_pengguna"
             android:layout_alignParentRight="true"
             android:text="Waktu OII"
             android:layout_alignParentTop="true" />
@@ -40,6 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content">
+
     <RelativeLayout
         android:padding="6.0dip"
         android:layout_width="match_parent"
@@ -47,7 +50,7 @@
         android:layout_margin="4.0dp">
 
         <TextView
-            android:id="@+id/mpesan"
+            android:id="@+id/cpesan"
             android:textSize="14dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"

@@ -1,5 +1,7 @@
 package com.example.sipkfinal;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,20 +13,11 @@ import java.util.ArrayList;
 
 public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanAdapterHolder> {
     private ArrayList<LaporanItem> mLaporanItem;
-    private OnItemClickListener mListener;
-
-    public interface OnItemClickListener{
-     void onItemClick(int position);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener){
-        mListener = listener;
-    }
 
     public static class LaporanAdapterHolder extends RecyclerView.ViewHolder{
         public TextView judul_keluhan,nama_kategori,waktu;
 
-        public LaporanAdapterHolder(@NonNull View itemView, final OnItemClickListener listener) {
+        public LaporanAdapterHolder(@NonNull final View itemView) {
             super(itemView);
             judul_keluhan = itemView.findViewById(R.id.mjudul_keluhan);
             nama_kategori = itemView.findViewById(R.id.mnama_kategori);
@@ -33,12 +26,10 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanA
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (listener !=null){
-                        int position = getAdapterPosition();
-                        if(position !=RecyclerView.NO_POSITION){
-                            listener.onItemClick(position);
-                        }
-                    }
+                    Context c = itemView.getRootView().getContext();
+
+                    Intent intent = new Intent(c, TanggapanActivity.class);
+                    c.startActivity(intent);
                 }
             });
         }
@@ -51,7 +42,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanA
     @Override
     public LaporanAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.daftar_laporan_row, parent, false);
-        LaporanAdapterHolder lah = new LaporanAdapterHolder(v, mListener);
+        LaporanAdapterHolder lah = new LaporanAdapterHolder(v);
         return lah;
     }
 
