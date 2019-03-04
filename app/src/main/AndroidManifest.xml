@@ -11,6 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".UtamaActivity"></activity>
+        <activity android:name=".DaftarActivity"></activity>
+        <activity android:name=".LaporActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
