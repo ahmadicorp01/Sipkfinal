@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,10 +16,11 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanA
     private ArrayList<LaporanItem> mLaporanItem;
 
     public static class LaporanAdapterHolder extends RecyclerView.ViewHolder{
-        public TextView judul_keluhan,nama_kategori,waktu;
+        public TextView id_laporan,judul_keluhan,nama_kategori,waktu;
 
         public LaporanAdapterHolder(@NonNull final View itemView) {
             super(itemView);
+            id_laporan = itemView.findViewById(R.id.mid_laporan);
             judul_keluhan = itemView.findViewById(R.id.mjudul_keluhan);
             nama_kategori = itemView.findViewById(R.id.mnama_kategori);
             waktu = itemView.findViewById(R.id.mwaktu);
@@ -29,6 +31,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanA
                     Context c = itemView.getRootView().getContext();
 
                     Intent intent = new Intent(c, TanggapanActivity.class);
+                    intent.putExtra("id_laporan", id_laporan.getText());
                     c.startActivity(intent);
                 }
             });
@@ -50,6 +53,7 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanA
     public void onBindViewHolder(@NonNull LaporanAdapterHolder holder, int i) {
         LaporanItem currentItem = mLaporanItem.get(i);
 
+        holder.id_laporan.setText(Integer.toString(currentItem.getMid_laporan()));
         holder.judul_keluhan.setText(currentItem.getJudul_keluhan());
         holder.nama_kategori.setText(currentItem.getNama_kategori());
         holder.waktu.setText(currentItem.getWaktu());

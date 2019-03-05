@@ -16,11 +16,11 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
     private ArrayList<ChatItem> mChatItem;
 
     public static class ChatAdapterHolder extends RecyclerView.ViewHolder{
-        public TextView nama,tanggapan,waktu;
+        public TextView nama_pengguna,tanggapan,waktu;
 
         public ChatAdapterHolder(@NonNull final View itemView) {
             super(itemView);
-            nama = itemView.findViewById(R.id.cnama_pengguna);
+            nama_pengguna = itemView.findViewById(R.id.cnama_pengguna);
             tanggapan = itemView.findViewById(R.id.cpesan);
             waktu = itemView.findViewById(R.id.cwaktu);
 
@@ -31,7 +31,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
     }
     @NonNull
     @Override
-    public ChatAdapter.ChatAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ChatAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_pengguna_row, parent, false);
         ChatAdapter.ChatAdapterHolder cah = new ChatAdapter.ChatAdapterHolder(v);
         return cah;
@@ -41,7 +41,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
     public void onBindViewHolder(@NonNull ChatAdapter.ChatAdapterHolder holder, int i) {
         ChatItem currentItem = mChatItem.get(i);
 
-        holder.nama.setText(currentItem.getNama());
+        holder.nama_pengguna.setText(currentItem.getNama());
         holder.tanggapan.setText(currentItem.getTanggapan());
         holder.waktu.setText(currentItem.getWaktu());
     }
