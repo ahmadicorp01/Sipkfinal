@@ -28,17 +28,18 @@
         android:padding="5dp"
         android:baselineAligned="true">
 
-        <EditText android:layout_weight="1"
-            android:id="@+id/textInput"
+        <EditText
+            android:id="@+id/text_pesan"
+            android:layout_weight="1"
             android:layout_height="45dp"
             android:layout_width="0dip">
         </EditText>
 
         <Button
+            android:id="@+id/btn_kirim"
             android:text="Send"
             android:layout_height="45dp"
-            android:layout_width="125dp"
-            android:id="@+id/btnSend">
+            android:layout_width="125dp">
         </Button>
     </LinearLayout>
 </LinearLayout>
