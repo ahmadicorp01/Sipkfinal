@@ -1,5 +1,6 @@
 package com.example.sipkfinal;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,13 +63,14 @@ public class LaporActivity extends AppCompatActivity {
         btn_lapor_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String kategori = myList2.get(spinner.getSelectedItemPosition());
                 Log.d("SIPK", kategori);
                 new sendLaporan().execute(Integer.toString(id_user),
                         judul_keluhan.getText().toString(),
                         kategori,
                         keluhan.getText().toString());
+                Toast.makeText(LaporActivity.this,"Laporan Berhasil Dibuat", Toast.LENGTH_SHORT).show();
+                openDaftarActivity();
             }
         });
 
@@ -173,5 +176,9 @@ public class LaporActivity extends AppCompatActivity {
 //                e.printStackTrace();
 //            }
         }
+    }
+    public void openDaftarActivity(){
+        Intent intent = new Intent (this, DaftarActivity.class);
+        startActivity(intent);
     }
 }

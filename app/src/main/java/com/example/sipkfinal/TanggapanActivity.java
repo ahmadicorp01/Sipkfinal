@@ -60,6 +60,8 @@ public class TanggapanActivity extends AppCompatActivity {
                 new sendChat().execute(Integer.toString(id_user),
                         id_laporan,
                         tanggapan.getText().toString());
+                recreate();
+                tanggapan.setText("");
             }
         });
 
