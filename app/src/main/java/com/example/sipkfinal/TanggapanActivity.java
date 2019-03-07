@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -35,6 +36,7 @@ public class TanggapanActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager cLayoutManager;
 
     EditText tanggapan;
+    TextView text_keluhan, text_status;
     Button kirim;
     int id_user = 0;
     SharedPreferences sharedPreferences;
@@ -47,6 +49,9 @@ public class TanggapanActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("SIPK", MODE_PRIVATE);
         id_user = sharedPreferences.getInt("id_user", 0);
+
+        text_keluhan = findViewById(R.id.text_keluhan);
+        text_status = findViewById(R.id.text_status);
 
         Intent intent = getIntent();
         final String id_laporan = intent.getExtras().getString("id_laporan");
@@ -74,8 +79,9 @@ public class TanggapanActivity extends AppCompatActivity {
         cRecyclerView.setLayoutManager(cLayoutManager);
         cRecyclerView.setAdapter(cAdapter);
 
-
+        new UserKeluhan().execute(id_laporan);
         new UserChatDaftar().execute(id_laporan);
+
 
     }
 
@@ -83,7 +89,7 @@ public class TanggapanActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             try {
-                Log.d("SIPK", s);
+//                Log.d("SIPK", s);
 
                 JSONObject jsonObj = new JSONObject(s);
 
@@ -106,9 +112,40 @@ public class TanggapanActivity extends AppCompatActivity {
         }
 
         @Override
-        protected String doInBackground(String... strings) {
+        protected String doInBackground(String... params) {
             HttpHandler sh = new HttpHandler();
-            String url = "http://10.0.2.2/sipk/api/user_tanggapan/" + strings[0];
+            String url = "http://10.0.2.2/sipk/api/user_tanggapan/" + params[0];
+            String jsonStr = sh.makeServiceCall(url);
+
+            return jsonStr;
+        }
+    }
+
+    private class UserKeluhan extends AsyncTask<String, String, String> {
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObj = new JSONObject(s);
+
+                if (jsonObj.getBoolean("status")) {
+                    JSONObject c = jsonObj.getJSONObject("data");
+//                    Log.d("SIPK", s);
+
+                    text_keluhan.setText(c.getString("keluhan"));
+                    text_status.setText(c.getString("laporan_status"));
+
+                } else
+                    Toast.makeText(TanggapanActivity.this, jsonObj.getString("data"), Toast.LENGTH_SHORT).show();
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            HttpHandler sh = new HttpHandler();
+            String url = "http://10.0.2.2/sipk/api/user_parsing_keluhan/" + params[0];
             String jsonStr = sh.makeServiceCall(url);
 
             return jsonStr;

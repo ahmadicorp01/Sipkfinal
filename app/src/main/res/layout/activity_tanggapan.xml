@@ -24,7 +24,7 @@
 
         <TextView
             android:id="@+id/text_keluhan"
-            android:layout_width="282dp"
+            android:layout_width="232dp"
             android:layout_height="49dp"
             android:padding="1dp"
             android:text="Disini keluhannya "
