@@ -134,6 +134,15 @@ public class TanggapanActivity extends AppCompatActivity {
                     text_keluhan.setText(c.getString("keluhan"));
                     text_status.setText(c.getString("laporan_status"));
 
+                    if(c.getInt("laporan_status")==1){
+                        text_status.setText("Pending");
+                    }if (c.getInt("laporan_status") == 2){
+                        text_status.setText("Proses");
+                    }if(c.getInt("laporan_status")==3){
+                        text_status.setText("Selesai");
+                    }
+
+
                 } else
                     Toast.makeText(TanggapanActivity.this, jsonObj.getString("data"), Toast.LENGTH_SHORT).show();
 
