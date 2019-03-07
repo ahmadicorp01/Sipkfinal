@@ -7,12 +7,37 @@
     android:orientation="vertical"
     tools:context=".TanggapanActivity">
 
-    <TextView
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Irfan Ahmadi"
-        android:textSize="20sp"
-        android:padding="20dp"/>
+        android:padding="6dp"
+        android:baselineAligned="true">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Keluhan : "
+        android:textSize="10sp"
+        android:padding="5dp"/>
+
+        <TextView
+            android:id="@+id/text_keluhan"
+            android:layout_width="282dp"
+            android:layout_height="49dp"
+            android:padding="1dp"
+            android:text="Disini keluhannya "
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Status"
+            android:textSize="10sp" />
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_chat"

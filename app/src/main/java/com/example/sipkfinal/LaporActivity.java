@@ -124,7 +124,7 @@ public class LaporActivity extends AppCompatActivity {
             String judul_keluhan = params[1];
             String kode_kategori = params[2];
             String keluhan = params[3];
-            String laporan_status = "3";
+            String laporan_status = "1";
 
             try{
                 URL url = new URL(reg_url);
