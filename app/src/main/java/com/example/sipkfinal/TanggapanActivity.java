@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -51,6 +52,7 @@ public class TanggapanActivity extends AppCompatActivity {
         id_user = sharedPreferences.getInt("id_user", 0);
 
         text_keluhan = findViewById(R.id.text_keluhan);
+        text_keluhan.setMovementMethod(new ScrollingMovementMethod());
         text_status = findViewById(R.id.text_status);
 
         Intent intent = getIntent();
