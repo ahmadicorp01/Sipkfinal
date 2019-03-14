@@ -7,6 +7,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="50dp"
+    android:focusableInTouchMode="true"
     tools:context=".LaporActivity">
 
     <Button
@@ -19,76 +20,64 @@
         android:text="Lapor" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="120dp"
         android:layout_marginTop="20dp"
-        android:orientation="vertical">
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="85dp"
-        android:text="Judul Laporan" />
+        android:orientation="vertical"
+        android:layout_marginLeft="80dp">
 
-    <EditText
-        android:id="@+id/judul_keluhan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginLeft="85dp"
-        android:inputType="textPersonName"
-        android:text="" />
-    </LinearLayout>
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/judul_keluhan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="85dp"
-        android:orientation="vertical">
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Judul Laporan"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
         <TextView
-         android:id="@+id/textView2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@id/judul_keluhan"
-         android:layout_marginLeft="85dp"
-         android:text="Kategori" />
-        <Spinner
-        android:id="@+id/kategori_spinner"
-        android:layout_width="150dp"
-        android:layout_marginLeft="85dp"
-        android:layout_centerHorizontal="true"
-            android:entries="@array/kategori_arrays"
-        android:layout_height="wrap_content" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="130dp"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="85dp"
-            android:text="Masukkan Pesan" />
+            android:layout_below="@id/judul_keluhan"
+            android:text="Kategori" />
+        <Spinner
+            android:id="@+id/kategori_spinner"
+            android:layout_width="150dp"
+            android:layout_centerHorizontal="true"
+            android:entries="@array/kategori_arrays"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
-        <EditText
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="80dp">
+
+        <android.support.design.widget.TextInputLayout
             android:id="@+id/keluhan"
-            android:layout_width="242dp"
-            android:layout_height="81dp"
-            android:layout_marginLeft="85dp"
-            android:ems="10"
-            android:inputType="textMultiLine"
-            android:text="" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:errorEnabled="true">
 
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="250dp"
+                android:layout_height="100dp"
+                android:hint="Keluhan"
+                android:inputType="textMultiLine" />
+        </android.support.design.widget.TextInputLayout>
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="85dp"
+            android:layout_marginTop="20dp"
             android:text="Button" />
     </LinearLayout>
 

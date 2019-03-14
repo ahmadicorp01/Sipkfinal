@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +34,7 @@ public class LaporActivity extends AppCompatActivity {
 
     int id_user = 0;
     SharedPreferences sharedPreferences;
-    EditText judul_keluhan,keluhan;
+    TextInputLayout judul_keluhan,keluhan;
     Spinner spinner;
     Button btn_lapor_tambah,button2;
     ArrayList<String> myList1,myList2;
@@ -63,12 +64,15 @@ public class LaporActivity extends AppCompatActivity {
         btn_lapor_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!validateJudulKeluhan()) {
+                    return;
+                }
                 String kategori = myList2.get(spinner.getSelectedItemPosition());
                 Log.d("SIPK", kategori);
                 new sendLaporan().execute(Integer.toString(id_user),
-                        judul_keluhan.getText().toString(),
+                        judul_keluhan.getEditText().getText().toString(),
                         kategori,
-                        keluhan.getText().toString());
+                        keluhan.getEditText().getText().toString());
                 Toast.makeText(LaporActivity.this,"Laporan Berhasil Dibuat", Toast.LENGTH_SHORT).show();
                 openDaftarActivity();
             }
@@ -108,6 +112,29 @@ public class LaporActivity extends AppCompatActivity {
             String jsonStr = sh.makeServiceCall(url);
 
             return jsonStr;
+        }
+    }
+    private boolean validateJudulKeluhan() {
+        String emailInput = judul_keluhan.getEditText().getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            judul_keluhan.setError("Wajib Diisi");
+            return false;
+        } else {
+            judul_keluhan.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validateKeluhan() {
+        String emailInput = keluhan.getEditText().getText().toString().trim();
+
+        if (emailInput.isEmpty()) {
+            keluhan.setError("Wajib Diisi");
+            return false;
+        } else {
+            keluhan.setError(null);
+            return true;
         }
     }
 

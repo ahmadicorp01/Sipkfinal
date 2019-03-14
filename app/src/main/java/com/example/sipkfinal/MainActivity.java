@@ -3,6 +3,7 @@ package com.example.sipkfinal;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     int id_user = 0;
     SharedPreferences sharedPreferences;
-    EditText text_username, text_password;
+    TextInputLayout text_username, text_password;
     Button btn_login;
 
 
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         if (sharedPreferences.getBoolean("isLogin", false))
             openUtamaActivity();
 
+
         text_username = findViewById(R.id.username);
         text_password = findViewById(R.id.password);
 
@@ -41,7 +43,10 @@ public class MainActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new UserLogin().execute(text_username.getText().toString(), text_password.getText().toString());
+                if (!validateUsername() | !validatePassword()) {
+                    return;
+                }
+                new UserLogin().execute(text_username.getEditText().getText().toString(), text_password.getEditText().getText().toString());
             }
         });
     }
@@ -49,8 +54,32 @@ public class MainActivity extends AppCompatActivity {
     public void openUtamaActivity(){
         Intent intent = new Intent(this,UtamaActivity.class);
         startActivity(intent);
+        finish();
     }
 
+    private boolean validateUsername() {
+        String usernameInput = text_username.getEditText().getText().toString().trim();
+
+        if (usernameInput.isEmpty()) {
+            text_username.setError("Username wajib diisi");
+            return false;
+        } else {
+            text_username.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validatePassword() {
+        String passwordInput = text_password.getEditText().getText().toString().trim();
+
+        if (passwordInput.isEmpty()) {
+            text_password.setError("Password wajib diisi");
+            return false;
+        } else {
+            text_password.setError(null);
+            return true;
+        }
+    }
     private class UserLogin extends AsyncTask<String, String, String> {
         @Override
         protected void onPostExecute(String s) {
