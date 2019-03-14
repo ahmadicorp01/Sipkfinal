@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="6dp"
-        android:baselineAligned="true">
+        android:baselineAligned="true"
+        android:background="#40D030">
 
     <TextView
         android:layout_width="wrap_content"
@@ -55,6 +56,7 @@
         android:id="@+id/recycler_chat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/gradientcard"
         android:layout_weight="5"/>
 
     <LinearLayout
@@ -63,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
+        android:background="#deecdd"
         android:baselineAligned="true">
 
         <EditText

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Sipkfinal</string>
     <string-array name="kategori_arrays"></string-array>
+    <string name="logout_name">Logout</string>
 </resources>

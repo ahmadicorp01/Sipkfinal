@@ -13,8 +13,10 @@
         android:theme="@style/AppTheme">
         <activity android:name=".TanggapanActivity"></activity>
         <activity android:name=".UtamaActivity" />
-        <activity android:name=".DaftarActivity" />
-        <activity android:name=".LaporActivity" />
+        <activity android:name=".DaftarActivity"
+            android:parentActivityName=".UtamaActivity"/>
+        <activity android:name=".LaporActivity"
+            android:parentActivityName=".UtamaActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

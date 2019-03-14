@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -31,6 +35,11 @@ public class DaftarActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("SIPK", MODE_PRIVATE);
         id_user = sharedPreferences.getInt("id_user", 0);
+
+        Toolbar toolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Daftar Laporan");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         laporanItems = new ArrayList<>();
         mRecyclerView = findViewById(R.id.recycler_view);

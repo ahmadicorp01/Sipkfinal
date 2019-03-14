@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -51,6 +52,11 @@ public class LaporActivity extends AppCompatActivity {
         judul_keluhan = findViewById(R.id.judul_keluhan);
         keluhan = findViewById(R.id.keluhan);
         button2 = findViewById(R.id.button2);
+
+        Toolbar toolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("Laporan Keluhan");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         spinner = findViewById(R.id.kategori_spinner);
         myList1 = new ArrayList<>();

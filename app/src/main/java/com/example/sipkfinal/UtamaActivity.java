@@ -5,6 +5,10 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +32,10 @@ public class UtamaActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("SIPK", MODE_PRIVATE);
         id_user = sharedPreferences.getInt("id_user", 0);
         new UserDetail().execute(Integer.toString(id_user));
+
+        Toolbar toolbar = findViewById(R.id.app_bar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("SIPK");
 
         text_nama = findViewById(R.id.text_nama);
         text_perusahaan = findViewById(R.id.text_perusahaan);
@@ -88,5 +96,15 @@ public class UtamaActivity extends AppCompatActivity {
             return jsonStr;
         }
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
 }
