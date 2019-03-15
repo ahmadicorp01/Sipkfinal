@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@drawable/gradientbg"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include
@@ -11,21 +12,14 @@
         layout="@layout/app_bar">
     </include>
 
-    <TextView android:textSize="17.0dip" android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="DAFTAR KELUHAN"
-        android:layout_centerHorizontal="true" />
-
     <android.support.v7.widget.RecyclerView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/recycler_view"
-        android:padding="4.0dip"
+        android:padding="2dp"
         android:scrollbars="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="65.0dip"
-        android:background="@drawable/gradientbg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:background="#ECEFF1"
         xmlns:app="http://schemas.android.com/apk/res-auto" />
 </RelativeLayout>

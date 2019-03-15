@@ -67,7 +67,10 @@ public class DaftarActivity extends AppCompatActivity {
                     for (int i = 0; i < jData.length(); i++) {
                         JSONObject c = jData.getJSONObject(i);
 
-                        laporanItems.add(new LaporanItem(c.getInt("id_laporan"), c.getString("judul_keluhan"), c.getString("nama_kategori"),c.getString("waktu")));
+                        laporanItems.add(new LaporanItem(c.getInt("id_laporan"),
+                                c.getString("judul_keluhan"),
+                                c.getString("nama_kategori"),
+                                c.getString("waktu")));
                         mAdapter.notifyDataSetChanged();
                     }
 

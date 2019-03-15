@@ -3,8 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    android:elevation="4dp"
+    android:background="#FFFF"
+    app:titleTextColor="@color/colorPrimaryDark"
+    android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+    android:elevation="1dp"
     app:popupTheme="@style/CostumPopupStyle">
 </android.support.v7.widget.Toolbar>

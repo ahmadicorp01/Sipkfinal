@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    android:background="@drawable/gradientbg"
+    android:background="@drawable/bgmenu"
     tools:context=".LaporActivity">
 
     <include

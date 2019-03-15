@@ -11,13 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TanggapanActivity"></activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".TanggapanActivity" />
         <activity android:name=".UtamaActivity" />
-        <activity android:name=".DaftarActivity"
-            android:parentActivityName=".UtamaActivity"/>
-        <activity android:name=".LaporActivity"
-            android:parentActivityName=".UtamaActivity"/>
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".DaftarActivity"
+            android:parentActivityName=".UtamaActivity" />
+        <activity
+            android:name=".LaporActivity"
+            android:parentActivityName=".UtamaActivity" />
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
