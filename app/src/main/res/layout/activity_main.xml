@@ -5,15 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    android:background="@drawable/gradientbg"
+    android:background="@drawable/bgsplash"
     tools:context=".MainActivity">
 
     <ImageView
-        android:layout_marginTop="80dp"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:id="@+id/logosipk"
+        android:layout_marginTop="75dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logopng"/>
+
     <android.support.design.widget.TextInputLayout
         android:id="@+id/username"
         android:layout_width="wrap_content"
@@ -23,7 +25,7 @@
         app:errorEnabled="true">
 
         <android.support.design.widget.TextInputEditText
-            android:layout_width="210dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Username"
             android:inputType="text" />
@@ -31,7 +33,7 @@
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true"
@@ -39,7 +41,7 @@
         android:layout_below="@id/username">
 
         <android.support.design.widget.TextInputEditText
-            android:layout_width="210dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:hint="Password"
             android:inputType="textPassword" />
@@ -48,7 +50,7 @@
 
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
+        android:layout_width="210dp"
         android:layout_height="wrap_content"
         android:text="LOGIN"
         android:layout_below="@id/password"
