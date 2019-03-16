@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
     android:background="@drawable/bgsplash"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
@@ -16,44 +17,88 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/logopng"/>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/username"
+
+    <LinearLayout
+        android:id="@+id/layout_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
+    <ImageView
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:src="@drawable/person"
+        android:layout_marginLeft="30dp"
+        android:alpha="0.7"
+        android:layout_marginTop="20dp"
+        />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="63dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            app:errorEnabled="true">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:hint="Username"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        app:errorEnabled="true">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:inputType="text" />
-    </android.support.design.widget.TextInputLayout>
+        android:layout_below="@id/layout_username">
+    <ImageView
+        android:layout_width="27dp"
+        android:layout_height="27dp"
+        android:src="@drawable/password"
+        android:layout_marginLeft="30dp"
+        android:alpha="0.7"
+        android:layout_marginTop="23dp"
+        />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="250dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
         app:passwordToggleEnabled="true"
         android:layout_centerInParent="true"
-        android:layout_below="@id/username">
+        >
 
         <android.support.design.widget.TextInputEditText
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
             android:hint="Password"
             android:inputType="textPassword" />
-
     </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_password"
+        android:layout_centerHorizontal="true"
+        android:paddingLeft="32dp">
     <Button
         android:id="@+id/btn_login"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="33dp"
         android:text="LOGIN"
-        android:layout_below="@id/password"
-        android:layout_centerHorizontal="true"/>
+        android:background="@drawable/custombutton"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:shadowRadius="5"/>
+    </LinearLayout>
 
 </RelativeLayout>
