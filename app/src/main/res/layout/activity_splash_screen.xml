@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".SplashScreen"
     android:orientation="vertical"
-    android:background="@drawable/gradientbg">
+    android:background="@drawable/bgsplash">
 
     <ImageView
         android:id="@+id/logosplash"
         android:layout_width="match_parent"
         android:layout_height="135dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="168dp"
+        android:layout_centerVertical="true"
+        android:layout_above="@id/progressBar"
+        android:layout_marginBottom="58dp"
         android:src="@drawable/logopng"/>
 
     <ProgressBar
@@ -29,8 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/version"
-        android:textColor="@color/colorPrimaryDark"
-        android:fontFamily=""
+        android:fontFamily="serif"
+        android:textColor="#666060"
         android:layout_centerHorizontal="true"
         android:text="Sistem Informasi Pelaporan Keluhan"/>
 
@@ -38,7 +40,8 @@
         android:id="@+id/version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="#666060"
+        android:fontFamily=""
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:text="Ver.1"/>

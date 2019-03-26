@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFF"
-    app:titleTextColor="@color/colorPrimaryDark"
+    app:titleTextColor="#474646"
     android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
     android:elevation="1dp"
     app:popupTheme="@style/CostumPopupStyle">
