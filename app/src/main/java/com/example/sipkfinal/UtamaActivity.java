@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +22,7 @@ public class UtamaActivity extends AppCompatActivity {
     int id_user = 0;
     SharedPreferences sharedPreferences;
     TextView text_nama, text_perusahaan;
-    Button btn_lapor, btn_lapor_daftar;
+    CardView btn_lapor, btn_lapor_daftar;
 
 
     @Override

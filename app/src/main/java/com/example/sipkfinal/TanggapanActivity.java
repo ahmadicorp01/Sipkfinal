@@ -38,7 +38,7 @@ public class TanggapanActivity extends AppCompatActivity {
 
     EditText tanggapan;
     TextView text_keluhan, text_status;
-    Button kirim;
+    Button kirim, arrow_back;
     int id_user = 0;
     SharedPreferences sharedPreferences;
     private ArrayList<ChatItem> chatItems;
@@ -59,6 +59,13 @@ public class TanggapanActivity extends AppCompatActivity {
         final String id_laporan = intent.getExtras().getString("id_laporan");
 
         tanggapan = findViewById(R.id.text_pesan);
+        arrow_back = findViewById(R.id.arrow_back);
+        arrow_back.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                openDaftarActivity();
+            }
+        });
         kirim = findViewById(R.id.btn_kirim);
         kirim.setOnClickListener(new View.OnClickListener() {
 
@@ -85,6 +92,10 @@ public class TanggapanActivity extends AppCompatActivity {
         new UserChatDaftar().execute(id_laporan);
 
 
+    }
+    public void openDaftarActivity() {
+        Intent intent = new Intent(this, DaftarActivity.class);
+        startActivity(intent);
     }
 
     private class UserChatDaftar extends AsyncTask<String, String, String> {

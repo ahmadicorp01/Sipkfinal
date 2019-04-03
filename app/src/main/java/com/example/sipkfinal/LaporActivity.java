@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -51,7 +52,6 @@ public class LaporActivity extends AppCompatActivity {
 
         judul_keluhan = findViewById(R.id.judul_keluhan);
         keluhan = findViewById(R.id.keluhan);
-        button2 = findViewById(R.id.button2);
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -142,6 +142,21 @@ public class LaporActivity extends AppCompatActivity {
             keluhan.setError(null);
             return true;
         }
+    }
+
+    public void browseImageLaporan(View v) {
+        String imageUri = "";
+
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        galleryIntent.setType("image/*");
+
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        cameraIntent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
+
+        Intent chooser = Intent.createChooser(galleryIntent, "Complete action using");
+        chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[] { cameraIntent });
+        startActivityForResult(chooser, 909);
     }
 
     private class sendLaporan extends AsyncTask <String,Void,String>{

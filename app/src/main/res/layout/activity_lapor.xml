@@ -73,12 +73,24 @@
                 android:hint="Keluhan"
                 android:inputType="textMultiLine" />
         </android.support.design.widget.TextInputLayout>
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
+
+        <ImageView
+            android:id="@+id/imgLowongan"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_add_circle_outline_black_24dp"
+            android:background="#C9C9C9"
+            android:clickable="true"
+            android:onClick="browseImageLaporan"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Gambar" />
+            android:text="* Ketuk untuk menambahkan atau mengubah gambar."
+            android:textStyle="italic"
+            android:paddingBottom="20dp"/>
 
     </LinearLayout>
 

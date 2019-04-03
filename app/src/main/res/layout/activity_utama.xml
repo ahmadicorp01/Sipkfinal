@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/gradientcard"
     android:orientation="vertical">
 
     <include
@@ -12,66 +12,41 @@
         layout="@layout/app_bar">
     </include>
 
-    <Button
-        android:id="@+id/btn_lapor_daftar"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btn_lapor"
-        android:background="@drawable/tmbl_dlapor"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="60dp"
-        android:layout_marginTop="5dp"
-         />
-
-    <Button android:id="@+id/btn_lapor"
-        android:layout_width="200dp"
-        android:layout_height="70dp"
-        android:layout_below="@id/card_view"
-        android:layout_marginTop="55dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="60dp"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/tmbl_lapor"
-        android:layout_centerVertical="true" />
-
     <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_centerHorizontal="true"
-        android:layout_width="300dp"
+        android:layout_width="340dp"
         android:layout_height="120dp"
-        android:layout_marginTop="150dp"
-        android:alpha="0.9"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:layout_marginTop="100dp"
+        android:layout_alignParentTop="true"
         card_view:cardCornerRadius="8.0dip"
         >
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-        <TextView
-            android:id="@+id/nama"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10.0dip"
-            android:layout_marginTop="10.0dip"
-            android:fontFamily="sans-serif-medium"
-            android:text="Hello"
-            android:textColor="#43B53F"
-            android:textSize="25.0dip" />
-
-        <TextView
-            android:id="@+id/text_nama"
-            android:textSize="25.0dip"
-            android:textColor="@android:color/black"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="10.0dip"
-            android:text="aa" />
+            >
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:layout_marginTop="10.0dip"
+                android:fontFamily="sans-serif-medium"
+                android:text="Hello"
+                android:textColor="#43B53F"
+                android:textSize="25.0dip" />
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/text_nama"
+                android:textSize="25.0dip"
+                android:textColor="@android:color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="10.0dip"
+                android:text="aa" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,15 +55,114 @@
             android:layout_marginTop="39dp"
             android:layout_marginLeft="10dp">
 
-        <TextView
-            android:textSize="15dp"
-            android:textColor="@android:color/darker_gray"
-            android:layout_gravity="center"
-            android:id="@+id/text_perusahaan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="aa" />
+            <TextView
+                android:id="@+id/text_perusahaan"
+                android:textSize="15dp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="aa" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
+
+    <RelativeLayout
+        android:layout_marginTop="56dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#63BDFFB9"
+        android:gravity="center|bottom">
+
+    <LinearLayout
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:id="@+id/btn_lapor_daftar"
+        android:layout_width="160dp"
+        android:layout_height="190dp"
+        android:layout_margin="10dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/circlebackgroundgreen"
+                android:src="@drawable/ic_drafts_white_24dp"
+                android:padding="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:text="Daftar Laporan"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/lightgray"
+                android:layout_margin="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Cek Daftar Laporan Anda"
+                android:padding="5dp"
+                android:textColor="@android:color/darker_gray"/>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/btn_lapor"
+            android:layout_width="160dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:background="@drawable/circlebackgroundred"
+                    android:src="@drawable/ic_email_white_24dp"
+                    android:padding="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"
+                    android:text="Lapor"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/lightgray"
+                    android:layout_margin="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Laporkan Keluhan Sekarang"
+                    android:padding="5dp"
+                    android:textColor="@android:color/darker_gray"/>
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>
