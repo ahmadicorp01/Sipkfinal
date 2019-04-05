@@ -3,6 +3,8 @@ package com.example.sipkfinal;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -19,10 +21,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class DaftarActivity extends AppCompatActivity {
+public class DaftarActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private RecyclerView mRecyclerView;
     private LaporanAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     int id_user = 0;
     SharedPreferences sharedPreferences;
@@ -41,6 +44,9 @@ public class DaftarActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Daftar Laporan");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        swipeRefreshLayout = findViewById(R.id.swipe_refresh);
+        swipeRefreshLayout.setOnRefreshListener(this);
+
         laporanItems = new ArrayList<>();
         mRecyclerView = findViewById(R.id.recycler_view);
 
@@ -53,6 +59,18 @@ public class DaftarActivity extends AppCompatActivity {
 
 
         new UserLaporanDaftar().execute(Integer.toString(id_user));
+    }
+
+    @Override
+    public void onRefresh() {
+        swipeRefreshLayout.setRefreshing(true);
+        (new Handler()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(false);
+                recreate();
+            }
+        },420);
     }
 
     private class UserLaporanDaftar extends AsyncTask<String, String, String> {

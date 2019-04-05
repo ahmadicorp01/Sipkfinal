@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ public class UtamaActivity extends AppCompatActivity {
     CardView btn_lapor, btn_lapor_daftar;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class UtamaActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("SIPK");
+        getSupportActionBar().setTitle("");
 
         text_nama = findViewById(R.id.text_nama);
         text_perusahaan = findViewById(R.id.text_perusahaan);
@@ -48,6 +50,7 @@ public class UtamaActivity extends AppCompatActivity {
                 openLaporActivity();
             }
         });
+
 
         btn_lapor_daftar = findViewById(R.id.btn_lapor_daftar);
         btn_lapor_daftar.setOnClickListener(new View.OnClickListener() {
@@ -82,7 +85,6 @@ public class UtamaActivity extends AppCompatActivity {
 
                 } else
                     Toast.makeText(UtamaActivity.this, jsonObj.getString("data"), Toast.LENGTH_SHORT).show();
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }

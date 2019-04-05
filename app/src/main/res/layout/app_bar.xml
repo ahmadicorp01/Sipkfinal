@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#FFFF"
-    app:titleTextColor="#474646"
-    android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-    android:elevation="1dp"
+    android:background="@color/colorgreentwo"
+    app:titleTextColor="#FFFFFF"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/CostumPopupStyle">
+    <!--android:elevation="1dp"-->
 </android.support.v7.widget.Toolbar>
