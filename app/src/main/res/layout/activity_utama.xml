@@ -50,7 +50,7 @@
                     android:layout_marginLeft="10.0dip"
                     android:layout_marginTop="10.0dip"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Hello"
+                    android:text="Halo, "
                     android:textColor="#43B53F"
                     android:textSize="25.0dip" />
 
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="10.0dip"
-                    android:text="aa" />
+                    android:text="Profil Error" />
             </LinearLayout>
 
             <LinearLayout
@@ -79,7 +79,7 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="aa" />
+                    android:text="Perusahaan Error" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
 
@@ -178,8 +178,8 @@
     </RelativeLayout>
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="78dp"
+        android:layout_height="75dp"
         android:layout_below="@id/app_bar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"

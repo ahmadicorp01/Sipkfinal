@@ -6,31 +6,38 @@
     app:cardElevation="0dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="6dp">
+    android:layout_marginLeft="6dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginBottom="6dp">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="3dp">
+        android:paddingBottom="3dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp">
         <TextView
             android:id="@+id/cnama_pengguna"
             android:textSize="11dp"
             android:textStyle="bold"
+            android:fontFamily="sans-serif"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NAMA WOEI"
+            android:layout_alignParentRight="true"
             android:layout_alignParentTop="true" />
 
         <TextView
             android:id="@+id/cwaktu"
             android:textSize="10dp"
+            android:fontFamily="sans-serif"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@id/cnama_pengguna"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentLeft="true"
             android:text="Waktu OII"
             android:layout_alignParentTop="true" />
 
@@ -41,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="0dp">
+        >
 
     <RelativeLayout
         android:padding="6.0dip"
@@ -51,7 +58,8 @@
 
         <TextView
             android:id="@+id/cpesan"
-            android:textSize="14dp"
+            android:fontFamily="sans-serif"
+            android:textSize="12dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"

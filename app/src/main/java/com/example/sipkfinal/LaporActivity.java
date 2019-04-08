@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -40,6 +41,7 @@ public class LaporActivity extends AppCompatActivity {
     Spinner spinner;
     Button btn_lapor_tambah,button2;
     ArrayList<String> myList1,myList2;
+    ImageView imglapor;
     private ArrayAdapter<String>myAdapter1;
 
     @Override
@@ -52,6 +54,8 @@ public class LaporActivity extends AppCompatActivity {
 
         judul_keluhan = findViewById(R.id.judul_keluhan);
         keluhan = findViewById(R.id.keluhan);
+
+        imglapor = findViewById(R.id.imgLowongan);
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
