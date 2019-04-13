@@ -82,13 +82,13 @@
 
         <ImageView
             android:id="@+id/imgKeluhan"
+            android:onClick="browseImageLaporan"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:scaleType="center"
             android:src="@drawable/ic_add_circle_outline_black_24dp"
             android:background="#C9C9C9"
             android:clickable="true"
-            android:onClick="browseImageLaporan"
             android:layout_marginBottom="5dp"/>
 
         <TextView

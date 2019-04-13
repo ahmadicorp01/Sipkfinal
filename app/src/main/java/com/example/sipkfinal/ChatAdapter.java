@@ -6,12 +6,18 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -23,15 +29,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
     private boolean kanan = false;
 
     public static class ChatAdapterHolder extends RecyclerView.ViewHolder{
-        public TextView nama_pengguna,tanggapan,waktu;
-
+        private TextView nama_pengguna,tanggapan,waktu;
+        private ImageView imagechat;
 
         public ChatAdapterHolder(@NonNull final View itemView) {
             super(itemView);
             nama_pengguna = itemView.findViewById(R.id.cnama_pengguna);
             tanggapan = itemView.findViewById(R.id.cpesan);
             waktu = itemView.findViewById(R.id.cwaktu);
-
+            imagechat = itemView.findViewById(R.id.img_chat);
         }
     }
 
@@ -68,6 +74,15 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
         holder.tanggapan.setText(currentItem.getTanggapan());
         holder.waktu.setText(currentItem.getWaktu());
 
+        Log.d("SIPK",currentItem.getImage());
+        if (!currentItem.getImage().isEmpty()) {
+            Context ctx = holder.imagechat.getContext();
+            String url = ctx.getString(R.string.ASSETS_URL) + currentItem.getImage();
+
+            Picasso.with(ctx).invalidate(url);
+            Picasso.with(ctx).load(url).networkPolicy(NetworkPolicy.NO_CACHE).memoryPolicy(MemoryPolicy.NO_CACHE).into(holder.imagechat);
+            holder.imagechat.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        }
     }
 
     @Override

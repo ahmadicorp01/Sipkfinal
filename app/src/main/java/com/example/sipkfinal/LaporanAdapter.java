@@ -30,7 +30,10 @@ public class LaporanAdapter extends RecyclerView.Adapter<LaporanAdapter.LaporanA
                 public void onClick(View v) {
                     Context c = itemView.getRootView().getContext();
 
+
                     Intent intent = new Intent(c, TanggapanActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                     intent.putExtra("id_laporan", id_laporan.getText());
                     c.startActivity(intent);
                 }

@@ -122,7 +122,9 @@ public class TanggapanActivity extends AppCompatActivity {
                                 c.getString("nama_pengguna"),
                                 c.getString("tanggapan"),
                                 c.getString("waktu"),
-                                (id_pengguna == c.getInt("id_pengguna") ? true : false)));
+                                (id_pengguna == c.getInt("id_pengguna") ? true : false),
+                                c.getString("laporan_file")));
+
 //                        Log.d("SIPK", String.valueOf(c.getInt("id_pengguna")));
                         cAdapter.notifyDataSetChanged();
 

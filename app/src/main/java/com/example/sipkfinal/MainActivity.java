@@ -12,11 +12,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.newtronlabs.easypermissions.EasyPermissions;
+import com.newtronlabs.easypermissions.listener.IError;
+import com.newtronlabs.easypermissions.listener.IPermissionsListener;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.Set;
+
+public class MainActivity extends AppCompatActivity  implements IPermissionsListener {
 
     int id_user = 0;
     SharedPreferences sharedPreferences;
@@ -28,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        EasyPermissions.getInstance().requestPermissions(this, this);
         sharedPreferences = getSharedPreferences("SIPK", MODE_PRIVATE);
         id_user = sharedPreferences.getInt("id_user", 0);
 
@@ -51,6 +57,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onCompleted(Set<String> grantedPermissions, Set<String> deniedPermissions) {
+
+    }
+
+    @Override
+    public void onFailure(IError iError) {
+
+    }
     public void openUtamaActivity(){
         Intent intent = new Intent(this,UtamaActivity.class);
         startActivity(intent);

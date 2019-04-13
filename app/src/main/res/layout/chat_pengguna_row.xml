@@ -52,7 +52,14 @@
         android:layout_marginTop="18dp"
         >
 
-    <RelativeLayout
+        <ImageView
+            android:id="@+id/img_chat"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@id/cpesan"
+            android:src="@drawable/logojpg"
+            />
+        <RelativeLayout
         android:id="@+id/layout_chat"
         android:padding="6.0dip"
         android:layout_width="wrap_content"

@@ -55,7 +55,6 @@ public class LaporActivity extends AppCompatActivity {
     Button btn_lapor_tambah,button2;
     ArrayList<String> myList1,myList2;
     ProgressDialog dialog;
-    ImageView imglapor;
     private ArrayAdapter<String>myAdapter1;
 
     @Override
@@ -66,10 +65,9 @@ public class LaporActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("SIPK", MODE_PRIVATE);
         id_user = sharedPreferences.getInt("id_user", 0);
         app = new App(this);
+
         judul_keluhan = findViewById(R.id.judul_keluhan);
         keluhan = findViewById(R.id.keluhan);
-
-        imglapor = findViewById(R.id.imgKeluhan);
 
         Toolbar toolbar = findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -99,7 +97,8 @@ public class LaporActivity extends AppCompatActivity {
                 new sendLaporan().execute(Integer.toString(id_user),
                         judul_keluhan.getEditText().getText().toString(),
                         kategori,
-                        keluhan.getEditText().getText().toString());
+                        keluhan.getEditText().getText().toString(),
+                        uploadedKeluhanImg);
                 Toast.makeText(LaporActivity.this,"Laporan Berhasil Dibuat", Toast.LENGTH_SHORT).show();
                 openDaftarActivity();
             }
@@ -226,6 +225,7 @@ public class LaporActivity extends AppCompatActivity {
             String judul_keluhan = params[1];
             String kode_kategori = params[2];
             String keluhan = params[3];
+            String laporan_file = params[4];
             String laporan_status = "1";
 
             try{
@@ -240,6 +240,7 @@ public class LaporActivity extends AppCompatActivity {
                         URLEncoder.encode("judul_keluhan", "UTF-8") + "=" +  URLEncoder.encode(judul_keluhan,"UTF-8") + "&" +
                         URLEncoder.encode("kode_kategori", "UTF-8") + "=" +  URLEncoder.encode(kode_kategori,"UTF-8") + "&" +
                         URLEncoder.encode("laporan_status", "UTF-8") + "=" +  URLEncoder.encode(laporan_status,"UTF-8") + "&" +
+                        URLEncoder.encode("laporan_file", "UTF-8") + "=" +  URLEncoder.encode(laporan_file,"UTF-8") + "&" +
                         URLEncoder.encode("keluhan", "UTF-8") + "=" +  URLEncoder.encode(keluhan,"UTF-8");
 
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
@@ -281,7 +282,11 @@ public class LaporActivity extends AppCompatActivity {
     }
     private void tambahGambar(){
         dialog = ProgressDialog.show(this, "", "Menyimpan data", true);
-                new sendLaporan().execute(uploadedKeluhanImg);
+                new sendLaporan().execute(
+                        judul_keluhan.getEditText().getText().toString(),
+                        keluhan.getEditText().getText().toString(),
+                        spinner.getSelectedItem().toString(),
+                        uploadedKeluhanImg);
     }
 
     public void openDaftarActivity(){
@@ -392,11 +397,12 @@ public class LaporActivity extends AppCompatActivity {
                 serverResponseCode = connection.getResponseCode();
                 String serverResponseMessage = connection.getResponseMessage();
                 //response code of 200 indicates the server status OK
+                Log.d("SIPK", String.valueOf(serverResponseCode));
                 if (serverResponseCode == 200) {
                     InputStream response = connection.getInputStream();
                     final String reply = convertStreamToString(response);
-
                     uploadedKeluhanImg = reply;
+                    Log.d("SIPK",reply);
 
 
                     runOnUiThread(new Runnable() {
@@ -416,6 +422,7 @@ public class LaporActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        Toast.makeText(LaporActivity.this, "Kepanggil Ngga", Toast.LENGTH_SHORT).show();
 //                        Snackbar.make(findViewById(R.id.layout_tambah_lowongan),"Berkas tidak ditemukan!", Snackbar.LENGTH_LONG).show();
                     }
                 });
