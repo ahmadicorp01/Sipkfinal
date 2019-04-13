@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
                     sharedPreferences.edit().putBoolean("isLogin", true).apply();
                     sharedPreferences.edit().putInt("id_user", jData.getInt("id_user")).apply();
+                    sharedPreferences.edit().putInt("id_pengguna", jData.getInt("id_pengguna")).apply();
                     sharedPreferences.edit().putString("status", jData.getString("status")).apply();
                     sharedPreferences.edit().putInt("akses", jData.getInt("akses")).apply();
 

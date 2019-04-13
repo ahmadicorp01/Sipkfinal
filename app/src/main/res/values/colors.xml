@@ -12,4 +12,7 @@
     <color name="darkblue">#23283a</color>
     <color name="testcolorblue">#152b38</color>
     <color name="black_overlay">#66000000</color>
+    <color name="brownstatus">#504B4B</color>
+    <color name="greenstatus">#4DCE4F</color>
+    <color name="bluetstatus">#4D62CE</color>
 </resources>

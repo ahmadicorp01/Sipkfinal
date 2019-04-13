@@ -5,18 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusableInTouchMode="true"
-    android:background="@drawable/bekgronlogin"
+    android:background="@drawable/bekgronlogindua"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/logosipk"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="120dp"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logopng"/>
-
 
     <LinearLayout
         android:id="@+id/layout_username"
@@ -90,20 +89,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/layout_password"
         android:layout_centerHorizontal="true"
-        android:paddingLeft="10dp">
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp">
 
         <Button
             android:layout_marginTop="15dp"
             android:id="@+id/btn_login"
+            android:textStyle="bold"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:background="@drawable/custombutton"
-            android:shadowColor="#A8A8A8"
             android:shadowDx="5"
             android:shadowDy="5"
             android:shadowRadius="5"
             android:fontFamily="sans-serif-black"
-            android:textColor="#2E8025"
+            android:textColor="#323632"
             android:text="LOGIN" />
     </LinearLayout>
 

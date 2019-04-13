@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,11 +37,14 @@ public class TanggapanActivity extends AppCompatActivity {
     private RecyclerView cRecyclerView;
     private ChatAdapter cAdapter;
     private RecyclerView.LayoutManager cLayoutManager;
+    private int jumlahtanggapan = 0;
 
     EditText tanggapan;
     TextView text_keluhan, text_status;
+    CardView cardview_status;
     Button kirim, arrow_back;
     int id_user = 0;
+    int id_pengguna = 0;
     SharedPreferences sharedPreferences;
     private ArrayList<ChatItem> chatItems;
 
@@ -50,10 +55,12 @@ public class TanggapanActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("SIPK", MODE_PRIVATE);
         id_user = sharedPreferences.getInt("id_user", 0);
+        id_pengguna = sharedPreferences.getInt("id_pengguna", 0);
 
         text_keluhan = findViewById(R.id.text_keluhan);
         text_keluhan.setMovementMethod(new ScrollingMovementMethod());
         text_status = findViewById(R.id.text_status);
+        cardview_status = findViewById(R.id.card_viewstatus);
 
         Intent intent = getIntent();
         final String id_laporan = intent.getExtras().getString("id_laporan");
@@ -91,7 +98,6 @@ public class TanggapanActivity extends AppCompatActivity {
         new UserKeluhan().execute(id_laporan);
         new UserChatDaftar().execute(id_laporan);
 
-
     }
     public void openDaftarActivity() {
         Intent intent = new Intent(this, DaftarActivity.class);
@@ -112,8 +118,24 @@ public class TanggapanActivity extends AppCompatActivity {
                     for (int i = 0; i < jData.length(); i++) {
                         JSONObject c = jData.getJSONObject(i);
 
-                        chatItems.add(new ChatItem(c.getString("nama_pengguna"), c.getString("tanggapan"), c.getString("waktu")));
+                        chatItems.add(new ChatItem(
+                                c.getString("nama_pengguna"),
+                                c.getString("tanggapan"),
+                                c.getString("waktu"),
+                                (id_pengguna == c.getInt("id_pengguna") ? true : false)));
+//                        Log.d("SIPK", String.valueOf(c.getInt("id_pengguna")));
                         cAdapter.notifyDataSetChanged();
+
+                        jumlahtanggapan++;
+                    }
+
+                    if (jumlahtanggapan <1 ){
+                        tanggapan.setVisibility(View.INVISIBLE);
+                        kirim.setVisibility(View.INVISIBLE);
+//                        Log.d("SIPK", String.valueOf(jumlahtanggapan));
+                    }else {
+                        tanggapan.setVisibility(View.VISIBLE);
+                        kirim.setVisibility(View.VISIBLE);
                     }
 
                 } else
@@ -149,9 +171,12 @@ public class TanggapanActivity extends AppCompatActivity {
 
                     if(c.getInt("laporan_status")==1){
                         text_status.setText("Pending");
+                        cardview_status.setBackgroundResource(R.color.brownstatus);
                     }if (c.getInt("laporan_status") == 2){
                         text_status.setText("Proses");
+                        cardview_status.setBackgroundResource(R.color.bluetstatus);
                     }if(c.getInt("laporan_status")==3){
+                        cardview_status.setBackgroundResource(R.color.greenstatus);
                         text_status.setText("Selesai");
                     }
 

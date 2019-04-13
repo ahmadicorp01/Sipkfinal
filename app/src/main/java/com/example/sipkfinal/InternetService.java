@@ -8,11 +8,9 @@
 //import android.os.IBinder;
 //import android.support.annotation.Nullable;
 //import android.util.Log;
-//
 //import org.json.JSONArray;
 //import org.json.JSONException;
 //import org.json.JSONObject;
-//
 //import java.util.Timer;
 //import java.util.TimerTask;
 //
@@ -23,7 +21,7 @@
 //    private Handler mHandler = new Handler();
 //    private Timer mTimer = null;
 //    private String id_user = null;
-//    private App core = null;
+//    private App app = null;
 //    private SharedPreferences sp;
 //
 //    @Override
@@ -43,7 +41,7 @@
 //            mHandler.post(new Runnable() {
 //                @Override
 //                public void run() {
-//                    if (core.cekInternet())
+//                    if (app.cekInternet())
 //                        new getNotifikasi().execute(id_user);
 //                    else
 //                        Log.d("SIPK", "No Internet");
@@ -60,7 +58,7 @@
 //        protected String doInBackground(String... params) {
 //            JSONParser jsonparser = new JSONParser();
 //
-//            String url = core.API("notifikasi/" + params[0]);
+//            String url = app.API("notifikasi/" + params[0]);
 //            jobj = jsonparser.makeHttpRequest(url);
 //
 //            return jobj.toString();
@@ -74,7 +72,7 @@
 //                for (int i = 0; i < jdata.length(); i++) {
 //                    JSONObject c = jdata.getJSONObject(i);
 //
-//                    core.showNotification(c.getString("judul"), c.getString("pesan"));
+//                    app.showNotification(c.getString("judul"), c.getString("pesan"));
 //                }
 //
 //
@@ -99,7 +97,7 @@
 //    @Override
 //    public int onStartCommand(Intent intent, int flags, int startId) {
 //        super.onStartCommand(intent, flags, startId);
-//        core = new App(getApplicationContext());
+//        app = new App(getApplicationContext());
 //
 //        sp = getSharedPreferences("SIPK", MODE_PRIVATE);
 //        id_user = String.valueOf(sp.getInt("id_user", 0));
