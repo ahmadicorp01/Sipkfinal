@@ -67,6 +67,9 @@ public class MainActivity extends AppCompatActivity  implements IPermissionsList
 
     }
     public void openUtamaActivity(){
+        stopService(new Intent(MainActivity.this, InternetService.class));
+        startService(new Intent(MainActivity.this, InternetService.class));
+
         Intent intent = new Intent(this,UtamaActivity.class);
         startActivity(intent);
         finish();

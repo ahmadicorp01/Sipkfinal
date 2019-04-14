@@ -20,6 +20,9 @@ public class SplashScreen extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+//        App app = new App(this);
+//            app.showNotification("Versi baru tersedia!", "Ketuk untuk melakukan pembaruan aplikasi.", false);
+
         new Handler().postDelayed(new Runnable(){
             @Override
                     public void run(){
@@ -29,4 +32,5 @@ public class SplashScreen extends AppCompatActivity{
             }
         },SPLASH_TIME_OUT);
     }
+
 }

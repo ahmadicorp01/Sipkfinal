@@ -31,6 +31,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <service
+            android:name=".InternetService"
+            android:enabled="true" />
+
         <activity android:name=".MainActivity"/>
         <activity android:name=".TanggapanActivity" />
         <activity android:name=".UtamaActivity" />
