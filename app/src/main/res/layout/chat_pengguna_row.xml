@@ -52,13 +52,6 @@
         android:layout_marginTop="18dp"
         >
 
-        <ImageView
-            android:id="@+id/img_chat"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_above="@id/cpesan"
-            android:src="@drawable/logojpg"
-            />
         <RelativeLayout
         android:id="@+id/layout_chat"
         android:padding="6.0dip"
@@ -66,10 +59,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="4.0dp">
 
-        <TextView
+            <ImageView
+            android:id="@+id/img_chat"
+            android:layout_below="@id/cpesan"
+
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            />
+            <TextView
             android:id="@+id/cpesan"
             android:fontFamily="sans-serif"
             android:textSize="12dp"
+                android:layout_marginBottom="8dp"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:layout_width="wrap_content"

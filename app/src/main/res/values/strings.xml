@@ -4,7 +4,7 @@
     <string name="logout_name">Logout</string>
 
     <string name="API_URL">http://10.0.2.2/sipk/api/</string>
-    <string name="ASSETS_URL">http://10.0.2.2/sipk/assets/uploads/chat/</string>
+    <string name="ASSETS_URL">http://10.0.2.2/sipk/uploads/chat/</string>
     <string name="DOC_URL">http://10.0.2.2/sipk/assets/docs/</string>
     <string name="channel_name">SIPK Notification</string>
     <string name="channel_description">SIPK Notification Channel</string>
