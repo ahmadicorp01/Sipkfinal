@@ -16,13 +16,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
-
 import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,19 +76,19 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
         holder.tanggapan.setText(currentItem.getTanggapan());
         holder.waktu.setText(currentItem.getWaktu());
 
-        holder.imagechat.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH ){
-                    imagechat.setSystemUiVisibility( View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
-
-                }
-                else if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB )
-                    imagechat.setSystemUiVisibility( View.STATUS_BAR_HIDDEN );
-                else{}
-
-            }
-        });
+//        holder.imagechat.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH ){
+//                    imagechat.setSystemUiVisibility( View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
+//
+//                }
+//                else if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB )
+//                    imagechat.setSystemUiVisibility( View.STATUS_BAR_HIDDEN );
+//                else{}
+//
+//            }
+//        });
 
         Log.d("SIPK",currentItem.getImage());
         if (!currentItem.getImage().isEmpty()) {

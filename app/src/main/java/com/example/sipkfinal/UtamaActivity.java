@@ -1,5 +1,6 @@
 package com.example.sipkfinal;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -108,6 +109,20 @@ public class UtamaActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.action_logout:
+                SharedPreferences sharedPreferences = getSharedPreferences("SIPK", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.commit();
+
+                Intent intent = new Intent(this,MainActivity.class);
+                startActivity(intent);
+
+                finish();
+
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
     }
 }
