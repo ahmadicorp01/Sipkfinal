@@ -90,7 +90,7 @@ public class App {
     }
 
     public static void showNotification(String sTitle, String sContent) {
-        Intent intent = new Intent(ctx, SplashScreen.class);
+        Intent intent = new Intent(ctx, DaftarActivity.class);
         intent.putExtra("notif", true);
 
         int requestID = (int) System.currentTimeMillis();
@@ -99,7 +99,7 @@ public class App {
         PendingIntent pIntent = PendingIntent.getActivity(ctx, requestID, intent, flags);
 
         Notification notif = new NotificationCompat.Builder(ctx, CHANNEL_ID)
-                .setSmallIcon(R.mipmap.ic_launcher)
+                .setSmallIcon(R.drawable.logopng)
                 .setColor(ContextCompat.getColor(ctx, R.color.backgroundcolor))
                 .setContentTitle(sTitle)
                 .setContentText(sContent)

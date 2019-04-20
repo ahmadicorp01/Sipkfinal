@@ -16,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
@@ -26,12 +28,13 @@ import java.util.List;
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHolder> {
     private ArrayList<ChatItem> mChatItem;
     private boolean kanan = false;
-    boolean isImageFitToScreen;
     private ImageView imagechat;
-
+    private CardView bubblechat;
     public static class ChatAdapterHolder extends RecyclerView.ViewHolder{
         private TextView nama_pengguna,tanggapan,waktu;
         private ImageView imagechat;
+        private CardView bubblechat;
+
 
         public ChatAdapterHolder(@NonNull final View itemView) {
             super(itemView);
@@ -39,6 +42,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
             tanggapan = itemView.findViewById(R.id.cpesan);
             waktu = itemView.findViewById(R.id.cwaktu);
             imagechat = itemView.findViewById(R.id.img_chat);
+            bubblechat = itemView.findViewById(R.id.card_viewchat);
 
         }
     }
@@ -51,17 +55,16 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
     public ChatAdapterHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.chat_pengguna_row, parent, false);
         ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-
-        if (kanan) {
-            v.setBackgroundResource(R.drawable.layoutsender);
-            layoutParams.setMargins(150, 6, 6, 6);
-            v.requestLayout();
-        }
-        else {
-            v.setBackgroundResource(R.drawable.layoutreceiver);
-            layoutParams.setMargins(6, 6, 150, 6);
-            v.requestLayout();
-        }
+//        if (kanan) {
+////            v.setBackgroundResource(R.drawable.layoutsender);
+////            layoutParams.setMargins(6, 6, 150, 6);
+//            v.requestLayout();
+//        }
+//        else {
+////            v.setBackgroundResource(R.drawable.layoutreceiver);
+////            layoutParams.setMargins(6, 6, 150, 6);
+//            v.requestLayout();
+//        }
 
         ChatAdapterHolder cah = new ChatAdapterHolder(v);
         return cah;
@@ -72,23 +75,19 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ChatAdapterHol
         ChatItem currentItem = mChatItem.get(i);
         kanan = currentItem.getKanan();
 
+
+
         holder.nama_pengguna.setText(currentItem.getNama());
         holder.tanggapan.setText(currentItem.getTanggapan());
         holder.waktu.setText(currentItem.getWaktu());
 
-//        holder.imagechat.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH ){
-//                    imagechat.setSystemUiVisibility( View.SYSTEM_UI_FLAG_HIDE_NAVIGATION );
-//
-//                }
-//                else if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB )
-//                    imagechat.setSystemUiVisibility( View.STATUS_BAR_HIDDEN );
-//                else{}
-//
-//            }
-//        });
+
+        if (kanan){
+            holder.bubblechat.setBackgroundResource(R.drawable.layoutsender);
+        }else {
+            holder.nama_pengguna.setText("Admin");
+            holder.bubblechat.setBackgroundResource(R.drawable.layoutreceiver);
+        }
 
         Log.d("SIPK",currentItem.getImage());
         if (!currentItem.getImage().isEmpty()) {

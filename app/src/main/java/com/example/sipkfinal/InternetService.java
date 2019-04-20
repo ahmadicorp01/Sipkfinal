@@ -92,7 +92,7 @@ public class InternetService extends Service {
         app = new App(getApplicationContext());
 
         sp = getSharedPreferences("SIPK", MODE_PRIVATE);
-        id_user = String.valueOf(sp.getInt("id_user", 0));
+        id_user = String.valueOf(sp.getInt("id", 0));
 
         return START_STICKY;
     }

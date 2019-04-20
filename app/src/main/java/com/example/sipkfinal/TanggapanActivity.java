@@ -75,6 +75,7 @@ public class TanggapanActivity extends AppCompatActivity {
         browsegambar = findViewById(R.id.btn_img_chat);
         text_keluhan = findViewById(R.id.text_keluhan);
         text_keluhan.setMovementMethod(new ScrollingMovementMethod());
+
         text_status = findViewById(R.id.text_status);
         cardview_status = findViewById(R.id.card_viewstatus);
 
@@ -142,22 +143,22 @@ public class TanggapanActivity extends AppCompatActivity {
                                 (id_pengguna == c.getInt("id_pengguna") ? true : false),
                                 c.getString("gambar")));
 
+
 //                        Log.d("SIPK", String.valueOf(c.getInt("id_pengguna")));
                         cAdapter.notifyDataSetChanged();
 
                         jumlahtanggapan++;
                     }
 
-                    if (jumlahtanggapan <1 ){
-                        tanggapan.setVisibility(View.INVISIBLE);
-                        kirim.setVisibility(View.INVISIBLE);
-                        browsegambar.setVisibility(View.INVISIBLE);
-//                        Log.d("SIPK", String.valueOf(jumlahtanggapan));
-                    }else {
-                        tanggapan.setVisibility(View.VISIBLE);
-                        kirim.setVisibility(View.VISIBLE);
-                        browsegambar.setVisibility(View.VISIBLE);
-                    }
+//                    if (jumlahtanggapan <1 ){
+//                        tanggapan.setVisibility(View.INVISIBLE);
+//                        kirim.setVisibility(View.INVISIBLE);
+//                        browsegambar.setVisibility(View.INVISIBLE);
+//                    }else {
+//                        tanggapan.setVisibility(View.VISIBLE);
+//                        kirim.setVisibility(View.VISIBLE);
+//                        browsegambar.setVisibility(View.VISIBLE);
+//                    }
                 } else
                     Toast.makeText(TanggapanActivity.this, jsonObj.getString("data"), Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
@@ -382,12 +383,24 @@ public class TanggapanActivity extends AppCompatActivity {
                     if(c.getInt("laporan_status")==1){
                         text_status.setText("Pending");
                         cardview_status.setBackgroundResource(R.color.brownstatus);
+
+                        tanggapan.setVisibility(View.VISIBLE);
+                        kirim.setVisibility(View.VISIBLE);
+                        browsegambar.setVisibility(View.VISIBLE);
                     }if (c.getInt("laporan_status") == 2){
                         text_status.setText("Proses");
                         cardview_status.setBackgroundResource(R.color.bluetstatus);
+
+                        tanggapan.setVisibility(View.VISIBLE);
+                        kirim.setVisibility(View.VISIBLE);
+                        browsegambar.setVisibility(View.VISIBLE);
                     }if(c.getInt("laporan_status")==3){
                         cardview_status.setBackgroundResource(R.color.greenstatus);
                         text_status.setText("Selesai");
+
+                        tanggapan.setVisibility(View.INVISIBLE);
+                        kirim.setVisibility(View.INVISIBLE);
+                        browsegambar.setVisibility(View.INVISIBLE);
                     }
 
 
@@ -420,7 +433,7 @@ public class TanggapanActivity extends AppCompatActivity {
             String id_pengguna = params[0];
             String id_laporan = params[1];
             String tanggapan = params[2];
-            String gambar = params[3];
+            String gambar = "0";
             String dibaca = "1";
 
             try{

@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity  implements IPermissionsList
                 if (!validateUsername() | !validatePassword()) {
                     return;
                 }
-                new UserLogin().execute(text_username.getEditText().getText().toString(), text_password.getEditText().getText().toString());
+                new UserLogin().execute(text_username.getEditText().getText().toString(),
+                        text_password.getEditText().getText().toString());
             }
         });
     }
